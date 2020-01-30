@@ -23,6 +23,7 @@ app.get("/", function(req, res) {
   res.redirect("/blogs");
 });
 
+//INDEX Route
 app.get("/blogs", function(req, res) {
   Blog.find({}, function(err, blogs) {
     if (err) {
@@ -33,6 +34,12 @@ app.get("/blogs", function(req, res) {
   });
 });
 
+//NEW Route
+app.get("/blogs/new", function(req, res) {
+  res.render("new");
+});
+
+//CREARE Route
 app.listen(process.env.PORT || 3000, function() {
   console.log("Server has started!");
 });
