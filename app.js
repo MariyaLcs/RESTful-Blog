@@ -18,13 +18,20 @@ var blogChema = new mongoose.Schema({
 });
 var Blog = mongoose.model("Blog", blogChema);
 
-Blog.create({
-  title: "Green Park",
-  image:
-    "https://images.unsplash.com/photo-1446844805183-9f5af45f89ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80",
-  body: "Hello this is a blog post"
-});
 //RESTful Routes
+app.get("/", function(req, res) {
+  res.redirect("/blogs");
+});
+
+app.get("/blogs", function(req, res) {
+  Blog.find({}, function(err, blogs) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("index", { blogs: blogs });
+    }
+  });
+});
 
 app.listen(process.env.PORT || 3000, function() {
   console.log("Server has started!");
