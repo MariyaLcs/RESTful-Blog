@@ -40,6 +40,16 @@ app.get("/blogs/new", function(req, res) {
 });
 
 //CREARE Route
+app.post("/blogs", function(req, res) {
+  Blog.create(req.body.blog, function(err, newBlog) {
+    if (err) {
+      res.render("new");
+    } else {
+      res.redirect("/blogs");
+    }
+  });
+});
+
 app.listen(process.env.PORT || 3000, function() {
   console.log("Server has started!");
 });

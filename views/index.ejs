@@ -1,11 +1,13 @@
 <%- include("partials/header") %>
-<h1>INDEX PAGE!</h1>
-
-<% blogs.forEach(function(blog){ %>
-<div>
-  <h2><%=blog.title%></h2>
-  <img src="<%=blog.image%>" alt="" />
-  <span><%=blog.created%></span>
-  <p><%=blog.body%></p>
+<div class="ui grid">
+  <div class="ui bottom main text container segment">
+    <% blogs.forEach(function(blog){ %>
+    <div>
+      <h2><%=blog.title%></h2>
+      <img src="<%=blog.image%>" alt="" />
+      <span><%=blog.created%></span>
+      <p><%=blog.body%></p>
+    </div>
+  </div>
 </div>
 <% }) %> <%- include("partials/footer") %>
