@@ -2,7 +2,7 @@
 <div class="ui grid " style="padding-top: 100px;">
   <div class="ui bottom main text container segment">
     <div class="ui huge header">Edit <%=blog.title%></div>
-    <form class="ui form" action="/blogs" method="POST">
+    <form class="ui form" action="/blogs/<%=blog._id%>" method="PUT">
       <div class="field">
         <label>Title</label>
         <input type="text" name="blog[title]" value="<%=blog.title%>" />
