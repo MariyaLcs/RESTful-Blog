@@ -88,6 +88,11 @@ app.put("/blogs/:id", function(req, res) {
   });
 });
 
+//Delete ROUTE
+app.delete("/blogs/:id", function(req, res) {
+  res.send("YOU HAVE REACHED THE DESTROY ROUTE");
+});
+
 app.listen(process.env.PORT || 3000, function() {
   console.log("Server has started!");
 });
